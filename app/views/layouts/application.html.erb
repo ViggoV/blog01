@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Blog01</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Blog01</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="uber_frame">
+      <div class="shadow_right"></div>
+      <div class="master_frame">
+        <img src="<%= image_path "header_img_tais.png" %>" />
+        <div class="main_spacer"></div>
+          <%= yield %>
+      </div>
+      <div class="shadow_left"></div>
+    </div>
+  </body>
 </html>

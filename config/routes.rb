@@ -1,5 +1,5 @@
 Blog01::Application.routes.draw do
-  get "posts/index"
+  #get "posts/index"
   
   resources :posts
 

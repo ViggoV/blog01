@@ -26,9 +26,7 @@ body, html {
     float: left;
     width: 882px;
     height: 100%;
-    
-    padding-top: 20px;
-    padding-bottom: 20px;
+
     padding-left: 25px;
     padding-right: 25px;
     
@@ -76,7 +74,33 @@ body, html {
 
 .main_spacer {
     width: 882px;
-    height:10px;
+    height:15px;
     margin: 0px;
     padding: 0px;
+/*    background-color:#0f0; */
+}
+
+.post_spacer {
+    width:680px;
+    height:10px;
+    padding:0px;
+    margin:0px;
+/*    background-color:#00f; */
+}
+
+.post_container {
+    width:680px;
+    margin:0px;
+    padding: 0px;
+/*    background-color: #f00; */
+}
+
+.post {
+    width: 650px;
+    background-color: #CCC;
+    margin: 0px 0px 0px 10px;
+    padding: 10px;
+    
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }

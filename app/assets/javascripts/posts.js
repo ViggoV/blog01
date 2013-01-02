@@ -7,6 +7,10 @@
 
 $(document).ready(function() {
     $(".post_spacer").click(function() {
-        $(".post_spacer").attr("style", "background-color: #F00")
+        if($(".post_spacer").attr("style") == "background-color: #F00") {
+            $(".post_spacer").attr("style", "")
+        } else {
+            $(".post_spacer").attr("style", "background-color: #F00")
+        }
     })
 })

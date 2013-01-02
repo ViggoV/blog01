@@ -4,11 +4,9 @@
  *# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
  */
 
-$(document).ready(function() {
-    alert("test")
-  $(".post_spacer").attr("style", "background-color: #F00")  
-};)
 
-function test() {
-    alert("Test")
-}
+$(document).ready(function() {
+    $(".post_spacer").click(function() {
+        $(".post_spacer").attr("style", "background-color: #F00")
+    })
+})

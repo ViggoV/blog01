@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'posts' %>
 <div class="header_spacer"></div>
 <div class="header_01">
   <form>
@@ -7,7 +8,7 @@
 <div class="main_spacer"></div>
 <div class="post_container">
   <% @posts.each do |p| %>
-    <div class="post">
+    <div class="post" onclick="test()">
       <h1 style="margin:0px;padding:0px;"><%= p.title %></h1>
       <p><%= p.content %></p>
       <small><%= p.created_at %></small>

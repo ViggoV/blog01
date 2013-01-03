@@ -6,11 +6,23 @@
 
 
 $(document).ready(function() {
-    $(".post_spacer").click(function() {
-        if($(".post_spacer").attr("style") == "background-color: #F00") {
-            $(".post_spacer").attr("style", "")
-        } else {
-            $(".post_spacer").attr("style", "background-color: #F00")
-        }
-    })
+//    $(".post").slideDown("slow", "swing")
+    tmpSet = $(".post").toArray()
+    slideDownSet(tmpSet)
 })
+
+function slideDownSet(set) {
+    if ($.isArray(set)) {
+        if (set.length > 0) {
+            doAnimate(set, 0)
+        }
+    }
+    
+    function doAnimate(loopset, index) {
+        $("#"+set[index].id).fadeIn("fast", "swing", function() {
+                if (index < loopset.length-1) {
+                    doAnimate(loopset, index+1)
+                }
+            })
+    }
+}

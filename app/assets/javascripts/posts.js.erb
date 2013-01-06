@@ -1,0 +1,26 @@
+/*
+ *# Place all the behaviors and hooks related to the matching controller here.
+ *# All this logic will automatically be available in application.js.
+ *# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+ */
+var isLoggedIn
+
+$(document).ready(function() {
+    isLoggedIn = false
+    
+    <% jsposts = Post.all %>
+    <% jsposts.each do |p| %>
+    $("#post_<%= p.id %>_title").click(function() {
+        $(".post_content").not("#post_<%= p.id %>_content").slideUp("medium")
+        $("#post_<%= p.id %>_content").slideToggle("medium")
+    })
+    <% end %>
+    
+    $("#new_login_button").click(function() {
+      if (isLoggedIn) {
+        $("#new_post_container").slideToggle("medium")
+      } else {
+        $("#login_form").animate({width: 'toggle', opacity: 'toggle'}, "fast", "swing")
+      }
+    })
+})

@@ -1,15 +1,48 @@
 <div class="header_spacer"></div>
 <div class="header_01">
-  <form>
-    Søg: <input type="text" name="search" /><a href="#">Søg</a> | Sorter: afspilninger <input type="checkbox" name="hejshejs" />
-  </form>
+  <div id="right_header">
+    <div id="new_login_button"><img src="<%= image_path("login.png") %>"></img></div>
+    <div id="login_form">
+      <%= form_for(User.new(), :remote => true, :action => "authenticate") do |u| %>
+        Brugernavn: <%= u.text_field :username %>
+        Password: <%= u.text_field :password %>
+        <%= u.submit "Log ind" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 <div class="main_spacer"></div>
 <div class="post_container">
+  <div id="new_post_container">
+    <div class="post" id="post_new">
+      <%= form_for @newpost do |f| %>
+        <div class="form_label">Overskrift: </div>
+        <%= f.text_field :title %>
+        <div class="post_inner_spacer"></div>
+        <div class="form_label">Youtube-kode: </div>
+        <%= f.text_field :embed_code %>
+        <div class="post_inner_spacer"></div>
+        <div class="form_label">Beskrivelse: </div>
+        <%= f.text_area :content %>
+        <div class="post_inner_spacer"></div>
+        <%= f.submit %>
+        <div class="post_inner_spacer"></div>
+      <% end %>
+    </div>
+    <div class="post_spacer"></div>
+  </div>
   <% @posts.each do |p| %>
     <div class="post" id="post_<%= p.id %>">
-      <h1 style="margin:0px;padding:0px;"><%= p.title %></h1>
-      <p><%= p.content %></p>
+      <div id="post_<%= p.id %>_title" class="post_title"><%= p.title %></div>
+      <div id="post_<%= p.id %>_content" class="post_content">
+        <div class="post_inner_spacer"></div>
+        <% if (!p.embed_code.blank?) %>
+            <div class="video_big"><iframe src="<%= p.embed_code %>"></iframe></div>
+            <div class="post_inner_spacer"></div>
+        <% end %>
+        <p><%= p.content %></p>
+        <div class="post_inner_spacer"></div>
+      </div>
       <small><%= p.created_at %></small>
     </div>
     <div class="post_spacer"></div>

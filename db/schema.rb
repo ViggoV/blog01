@@ -11,13 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130101123425) do
+ActiveRecord::Schema.define(:version => 20130106201305) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
     t.text     "embed_code"
     t.integer  "footer_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "password"
+    t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

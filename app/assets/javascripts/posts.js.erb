@@ -20,7 +20,24 @@ $(document).ready(function() {
       if (isLoggedIn) {
         $("#new_post_container").slideToggle("medium")
       } else {
-        $("#login_form").animate({width: 'toggle', opacity: 'toggle'}, "fast", "swing")
+        $("#login_form").animate({width: 'toggle', opacity: 'toggle'}, "fast", "swing", function() {
+          $("#username").focus()
+        })
       }
     })
+})
+
+$(document).ajaxComplete(function(event, xhr, settings) {
+  $("#login_response").html(xhr.responseText)
+  $("#login_form").animate({width: 'hide', opacity: 'hide'}, "fast", "swing", function(){
+    $("#login_response").animate({width: 'show', opacity: 'show'}, "fast", "swing", function() {
+      if (xhr.responseText == "Succes!") isLoggedIn = true
+      if (isLoggedIn) {
+        $("#login_image").animate({left: 'hide', opacity: 'hide'}, "fast", "swing", function() {
+          $("#new_image").animate({left : 'show', opacity: 'show'}, "fast", "swing")
+        })
+      }
+      $("#login_response").delay(1000).animate({width: 'hide', opacity: 'hide'}, "3000", "swing")
+    })
+  })
 })

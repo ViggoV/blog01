@@ -1,14 +1,20 @@
+<% provide(:title, "Main Page") %>
 <div class="header_spacer"></div>
 <div class="header_01">
   <div id="right_header">
-    <div id="new_login_button"><img src="<%= image_path("login.png") %>"></img></div>
+    <div id="new_login_button">
+      <img id="login_image" src="<%= image_path("login.png") %>"></img>
+      <img id="new_image" src="<%= image_path("new_post.png") %>"></img>
+  </div>
     <div id="login_form">
-      <%= form_for(User.new(), :remote => true, :action => "authenticate") do |u| %>
-        Brugernavn: <%= u.text_field :username %>
-        Password: <%= u.text_field :password %>
-        <%= u.submit "Log ind" %>
+      <%= form_tag({:action => :authenticate}, :format => :js,
+                   :remote => true) do -%>
+        Brugernavn: <%= text_field_tag :username %>
+        Password: <%= password_field_tag :password %>
+        <%= submit_tag "Log ind" %>
       <% end %>
     </div>
+    <div id="login_response"></div>
   </div>
 </div>
 <div class="main_spacer"></div>

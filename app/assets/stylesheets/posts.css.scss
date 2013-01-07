@@ -38,8 +38,26 @@ iframe {
     float:right;
     display: none;
     form {
-        width:600px;
+        width:510px;
     }
+}
+
+#login_response {
+    float:right;
+    width:510px;
+    text-align: right;
+    padding-right: 5px;
+    display:none;
+}
+
+#new_image, #login_image {
+    float: right;
+    width:30px;
+    height:30px;
+}
+
+#new_image {
+    display:none;
 }
 
 .uber_frame {

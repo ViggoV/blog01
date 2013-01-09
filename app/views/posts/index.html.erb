@@ -21,7 +21,7 @@
   </div>
   <% @posts.each do |p| %>
     <div class="post" id="post_<%= p.id %>">
-      <div id="post_<%= p.id %>_title" class="post_title"><%= p.title %></div>
+      <div id="post_<%= p.id %>_title" class="post_title"><%= image_tag "drop_arrow.png", class: "drop_arrow" %><%= p.title %></div>
       <div id="post_<%= p.id %>_content" class="post_content">
         <div class="post_inner_spacer"></div>
         <% if (!p.embed_code.blank?) %>

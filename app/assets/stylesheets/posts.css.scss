@@ -165,6 +165,13 @@ iframe {
 .post_title {
     font-size: 19px;
     font-weight: bold;
+/*
+ *   img {
+ *      background-color: #fff;
+ *      border: 1px solid;
+ *  }
+ *
+ */
 }
 
 .post_content {
@@ -176,4 +183,20 @@ iframe {
     height:8px;
     margin: 0px;
     padding: 0px;
+}
+
+.drop_arrow {
+    margin-right:10px;
+}
+
+.test {
+    background-color: #0FF;
+}
+
+.rotated_img {
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg); /* IE 9 */
+    -moz-transform:rotate(90deg); /* Firefox */
+    -webkit-transform:rotate(90deg); /* Safari and Chrome */
+    -o-transform:rotate(90deg); /* Opera */
 }

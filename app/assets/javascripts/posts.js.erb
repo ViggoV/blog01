@@ -12,7 +12,18 @@ $(document).ready(function() {
     <% jsposts.each do |p| %>
     $("#post_<%= p.id %>_title").click(function() {
         $(".post_content").not("#post_<%= p.id %>_content").slideUp("medium")
+        $(".post_title").not(this).find('img').removeClass("rotated_img")
         $("#post_<%= p.id %>_content").slideToggle("medium")
+
+        $(this).find('img').animate({rotation: 90}, {duration: 500,
+						     step: function(now, fx) {
+							$(this).css({"transform": "rotate("+now+"deg)"})
+							$(this).css({"-ms-transform": "rotate("+now+"deg)"})
+							$(this).css({"-moz-transform": "rotate("+now+"deg)"})
+							$(this).css({"-webkit-transform": "rotate("+now+"deg)"})
+							$(this).css({"-o-transform": "rotate("+now+"deg)"})
+						     }
+						    }, "slow", "linear")
     })
     <% end %>
     
@@ -25,6 +36,7 @@ $(document).ready(function() {
         })
       }
     })
+    
 })
 
 $(document).ajaxComplete(function(event, xhr, settings) {
